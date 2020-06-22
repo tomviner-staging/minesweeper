@@ -73,7 +73,6 @@ function Board(props) {
         setGameState={setGameState}
         revealMap={revealMap}
         key={z}
-        z={z}
       />
     );
   });

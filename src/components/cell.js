@@ -1,7 +1,6 @@
 import React from 'react';
 import { getClsNames } from '../utils/utils';
 import { cellSize } from '../utils/constants';
-import { List } from 'immutable';
 import { gameStates } from '../utils/constants';
 import './cell.css';
 
@@ -15,7 +14,6 @@ function Cell(props) {
     setIsFlagged,
     gameState,
     setGameState,
-    z,
   } = props;
   const onClick = e => {
     if (!gameState && !isFlagged) {
