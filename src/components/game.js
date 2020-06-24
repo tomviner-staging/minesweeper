@@ -4,7 +4,7 @@ import Board from './board';
 import Score from './score';
 import { generateField, getBoolMap } from '../logic/minefield';
 import { sum } from '../utils/utils';
-import { gameStates, stateToName } from '../utils/constants';
+import { gameStates  } from '../utils/constants';
 import './game.css';
 
 function Game(props) {
@@ -78,6 +78,11 @@ function Game(props) {
         setGameState={setGameState}
       />
       <div className="controls">
+        <strong>Instructions:</strong><br/>
+        Reveal: tap / click<br/>
+        Flag: right-click / swipe up<br/>
+        <br/>
+        <strong>Alter minefield</strong> (starts new game):<br/>
         <div>
           Size: <button onClick={widthDecButton}>-</button>
           {width}
@@ -87,11 +92,6 @@ function Game(props) {
           Mines density: <button onClick={mineProbDecButton}>-</button>
           {mineProb}
           <button onClick={mineProbIncButton}>+</button>
-        </div>
-        <div>Mines: {mineCount}</div>
-        <div>State: {stateToName(gameState)}</div>
-        <div>
-          New game:<button onClick={newGameButton}>go</button>
         </div>
       </div>
     </div>

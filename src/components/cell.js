@@ -2,8 +2,7 @@ import React from 'react';
 import { getClsNames } from '../utils/utils';
 import { cellSize } from '../utils/constants';
 import { gameStates } from '../utils/constants';
-import ReactTouchEvents from "react-touch-events";
-import LongPress from 'react-long';
+import ReactTouchEvents from 'react-touch-events';
 import './cell.css';
 
 function Cell(props) {
@@ -59,24 +58,16 @@ function Cell(props) {
   const style = { width: cellSize, height: cellSize };
 
   return (
-    // <ReactTouchEvents
-    //   onTap={onClick}
-    //   onSwipe={onRightClick}
-    // >
-      <LongPress
-        onShortPress={onClick}
-        onLongPress={onRightClick}
+    <ReactTouchEvents onTap={onClick} onSwipe={onRightClick}>
+      <div
+        className={classNames}
+        style={style}
+        onClick={onClick}
+        onContextMenu={onRightClick}
       >
-        <div
-          className={classNames}
-          style={style}
-          onClick={onClick}
-          onContextMenu={onRightClick}
-        >
-          {content}
-        </div>
-      </LongPress>
-    // </ReactTouchEvents>
+        {content}
+      </div>
+    </ReactTouchEvents>
   );
 }
 
