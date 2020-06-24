@@ -4,7 +4,7 @@ import Board from './board';
 import Score from './score';
 import { generateField, getBoolMap } from '../logic/minefield';
 import { sum } from '../utils/utils';
-import { gameStates  } from '../utils/constants';
+import { gameStates } from '../utils/constants';
 import './game.css';
 
 function Game(props) {
@@ -78,11 +78,15 @@ function Game(props) {
         setGameState={setGameState}
       />
       <div className="controls">
-        <strong>Instructions:</strong><br/>
-        Reveal: tap / click<br/>
-        Flag: right-click / swipe up<br/>
-        <br/>
-        <strong>Alter minefield</strong> (starts new game):<br/>
+        <strong>Instructions:</strong>
+        <br />
+        Reveal: tap / click
+        <br />
+        Flag: right-click / swipe up
+        <br />
+        <br />
+        <strong>Alter minefield</strong> (starts new game):
+        <br />
         <div>
           Size: <button onClick={widthDecButton}>-</button>
           {width}
