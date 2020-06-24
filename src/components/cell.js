@@ -2,6 +2,7 @@ import React from 'react';
 import { getClsNames } from '../utils/utils';
 import { cellSize } from '../utils/constants';
 import { gameStates } from '../utils/constants';
+import ReactTouchEvents from "react-touch-events";
 import './cell.css';
 
 function Cell(props) {
@@ -57,14 +58,19 @@ function Cell(props) {
   const style = { width: cellSize, height: cellSize };
 
   return (
-    <div
-      className={classNames}
-      onClick={onClick}
-      onContextMenu={onRightClick}
-      style={style}
+    <ReactTouchEvents
+      onTap={onClick}
+      onSwipe={onRightClick}
     >
-      {content}
-    </div>
+      <div
+        className={classNames}
+        style={style}
+        onClick={onClick}
+        onContextMenu={onRightClick}
+      >
+        {content}
+      </div>
+    </ReactTouchEvents>
   );
 }
 
