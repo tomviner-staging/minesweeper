@@ -3,6 +3,7 @@ import { getClsNames } from '../utils/utils';
 import { cellSize } from '../utils/constants';
 import { gameStates } from '../utils/constants';
 import ReactTouchEvents from "react-touch-events";
+import LongPress from 'react-long';
 import './cell.css';
 
 function Cell(props) {
@@ -17,18 +18,18 @@ function Cell(props) {
     setGameState,
   } = props;
   const onClick = e => {
+    e.preventDefault && e.preventDefault();
     if (!gameState && !isFlagged) {
       setIsRevealed();
       if (isMine) {
         setGameState(gameStates.lost);
       }
     }
-    e.preventDefault();
   };
 
   const onRightClick = e => {
+    e.preventDefault && e.preventDefault();
     setIsFlagged(!isFlagged);
-    e.preventDefault();
   };
 
   let content,
@@ -58,19 +59,24 @@ function Cell(props) {
   const style = { width: cellSize, height: cellSize };
 
   return (
-    <ReactTouchEvents
-      onTap={onClick}
-      onSwipe={onRightClick}
-    >
-      <div
-        className={classNames}
-        style={style}
-        onClick={onClick}
-        onContextMenu={onRightClick}
+    // <ReactTouchEvents
+    //   onTap={onClick}
+    //   onSwipe={onRightClick}
+    // >
+      <LongPress
+        onShortPress={onClick}
+        onLongPress={onRightClick}
       >
-        {content}
-      </div>
-    </ReactTouchEvents>
+        <div
+          className={classNames}
+          style={style}
+          onClick={onClick}
+          onContextMenu={onRightClick}
+        >
+          {content}
+        </div>
+      </LongPress>
+    // </ReactTouchEvents>
   );
 }
 

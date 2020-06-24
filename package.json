@@ -11,7 +11,8 @@
     "immutable": "^4.0.0-rc.12",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-long-press": "^0.1.6",
+    "react-long": "^1.1.9",
+    "react-longpressable": "^1.1.1",
     "react-scripts": "3.4.1",
     "react-touch-events": "^2.1.0"
   },
