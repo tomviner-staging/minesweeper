@@ -64,6 +64,7 @@ function Cell(props) {
         style={style}
         onClick={onClick}
         onContextMenu={onRightClick}
+        unselectable="on"
       >
         {content}
       </div>
