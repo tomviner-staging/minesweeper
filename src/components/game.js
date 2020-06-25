@@ -25,6 +25,8 @@ function Game(props) {
     setMaps(generateField(width, height, mineProb));
     setRevealMap(getBoolMap(width, height));
     setFlagMap(getBoolMap(width, height));
+    setGameState(gameStates.active);
+
   }, [width, height, mineProb]);
 
   const widthIncButton = e => {
@@ -60,43 +62,61 @@ function Game(props) {
 
   return (
     <div className="container">
-      <Score
-        gameState={gameState}
-        minesLeft={minesLeft}
-        newGameButton={newGameButton}
-      />
-      <Board
-        width={width}
-        height={height}
-        mineMap={mineMap}
-        countMap={countMap}
-        revealMap={revealMap}
-        setRevealMap={setRevealMap}
-        flagMap={flagMap}
-        setFlagMap={setFlagMap}
-        gameState={gameState}
-        setGameState={setGameState}
-      />
-      <div className="controls">
+      <div className="section">
+        <Score
+          gameState={gameState}
+          minesLeft={minesLeft}
+          newGameButton={newGameButton}
+        />
+      </div>
+      <div className="section">
+        <Board
+          width={width}
+          height={height}
+          mineMap={mineMap}
+          countMap={countMap}
+          revealMap={revealMap}
+          setRevealMap={setRevealMap}
+          flagMap={flagMap}
+          setFlagMap={setFlagMap}
+          gameState={gameState}
+          setGameState={setGameState}
+        />
+      </div>
+      <div className="section controls">
         <strong>Instructions:</strong>
-        <br />
-        Reveal: tap / click
-        <br />
-        Flag: right-click / swipe up
-        <br />
-        <br />
-        <strong>Alter minefield</strong> (starts new game):
-        <br />
+        <p>
+          Reveal: click / tap
+        </p>
+        <p>
+          Flag: right-click / long-tap / swipe
+        </p>
+      </div>
+      <div className="section controls">
+        <p>
+          <strong>Alter minefield</strong> (starts new game):
+        </p>
         <div>
           Size: <button onClick={widthDecButton}>-</button>
           {width}
           <button onClick={widthIncButton}>+</button>
         </div>
         <div>
-          Mines density: <button onClick={mineProbDecButton}>-</button>
+          Mine density: <button onClick={mineProbDecButton}>-</button>
           {mineProb}
           <button onClick={mineProbIncButton}>+</button>
         </div>
+      </div>
+      <div className="section controls">
+        <p>
+          <span>
+            <a href="https://twitter.com/tomviner">@tomviner</a>
+          </span>
+          |
+          <span>
+            <a href="https://github.com/tomviner/minesweeper">source</a>
+          </span>
+        </p>
       </div>
     </div>
   );

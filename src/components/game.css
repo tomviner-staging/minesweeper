@@ -8,11 +8,19 @@ button {
     margin: 1px 5px;
 }
 
-
 .container {
+    border: 2px solid darkgrey;
+    width: max-content
+}
 
+.section {
+    border: 2px solid darkgrey;
 }
 
 .controls {
-    width: 300px;
+    padding: 5px 0;
+}
+
+.controls span {
+    padding: 0 5px;
 }
