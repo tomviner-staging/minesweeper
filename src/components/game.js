@@ -110,11 +110,11 @@ function Game(props) {
       <div className="section controls">
         <p>
           <span>
-            <a href="https://twitter.com/tomviner">@tomviner</a>
+            <a href="https://github.com/tomviner/minesweeper">Source</a>
           </span>
           |
           <span>
-            <a href="https://github.com/tomviner/minesweeper">source</a>
+            <a href="https://twitter.com/tomviner">@tomviner</a>
           </span>
         </p>
       </div>
