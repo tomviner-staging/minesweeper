@@ -28,7 +28,9 @@ function Cell(props) {
 
   const onRightClick = e => {
     e.preventDefault && e.preventDefault();
-    setIsFlagged(!isFlagged);
+    if (!gameState) {
+      setIsFlagged(!isFlagged);
+    }
   };
 
   let content,
