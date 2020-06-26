@@ -4,9 +4,9 @@ import { range2d, rand, sum, mapToFunction, mapToValue } from '../utils/utils';
 export const generateField = (width, height, mineProb) => {
   const coords = range2d(width, height);
 
-  const mineMap = mapToFunction(coords, _ => rand(mineProb));
+  const mineMap = mapToFunction(coords, () => rand(mineProb));
 
-  // When outside the boundary it's `undefined || 0`
+  // When z is outside the boundary this equates to `undefined || 0`
   const isMine = z => mineMap.get(z) || 0;
 
   const countAround = z => sum(neighbours(z, coords).map(isMine));
